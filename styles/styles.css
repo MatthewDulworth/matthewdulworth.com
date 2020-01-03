@@ -1,0 +1,23 @@
+* {
+   box-sizing: border-box;
+}
+
+*, *:before, *:after {
+   box-sizing: inherit;
+}
+
+body{
+   display: grid;
+   height: 100vh;
+   margin: 0;
+   place-items: center center;
+
+   background-color: black;
+   color: white;
+   font-family: 'Bebas Neue', cursive;
+}
+
+#message{
+   font-size: 80px;
+}
+
