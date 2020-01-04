@@ -14,11 +14,40 @@ body {
    font-family: 'Courier New', Courier, monospace;
 }
 
+.main-item.about {
+   grid-area: about;
+}
+
+.main-item.resume {
+   grid-area: resume;
+}
+
+.main-item.sketches {
+   grid-area: sketches;
+}
+
+.main-item.music {
+   grid-area: music;
+}
+
 main {
    height: 100%;
    display: grid;
-   grid-template-columns: auto auto;
-   grid-template-rows: auto auto;
+   grid-auto-rows: minmax(200px, 1fr);
+   grid-auto-columns: minmax(200px, 1fr);
+   grid-template-areas: 
+   "about"
+   "sketches"
+   "music"
+   "resume";
+}
+
+@media (min-width: 500px) {
+   main {
+       grid-template-areas: 
+         "about sketches"
+         "music resume";
+   }
 }
 
 .main-item {
@@ -29,6 +58,7 @@ main {
 
 .content {
    background-color: white;
+   color: black;
    width: 100%;
    height: 100%;
 }
@@ -42,12 +72,14 @@ main {
    width: 100%;
    height: 100%;
    transition: .2s ease;
+   display: grid;
+   place-items: center center;
 }
 
 .main-item:hover .overlay.slide-right {
    width: 0%;
    left: 100%;
-   transition: .5s ease;
+   transition: .4s ease;
 }
 
 .main-item:hover .slide-left {
@@ -69,4 +101,9 @@ main {
 
 .overlay.music {
    background-color: #c1cfda;
+}
+
+.overlay-title {
+   color: white;
+   font-size: large;
 }
