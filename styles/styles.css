@@ -6,18 +6,67 @@
    box-sizing: inherit;
 }
 
-body{
-   display: grid;
+body {
    height: 100vh;
    margin: 0;
-   place-items: center center;
-
    background-color: black;
    color: white;
-   font-family: 'Bebas Neue', cursive;
+   font-family: 'Courier New', Courier, monospace;
 }
 
-#message{
-   font-size: 80px;
+main {
+   height: 100%;
+   display: grid;
+   grid-template-columns: auto auto;
+   grid-template-rows: auto auto;
 }
 
+.main-item {
+   margin: 0;
+   padding: 0;
+   position: relative;
+}
+
+.content {
+   background-color: white;
+   width: 100%;
+   height: 100%;
+}
+
+.overlay {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   overflow: hidden;
+   width: 100%;
+   height: 100%;
+   transition: .2s ease;
+}
+
+.main-item:hover .overlay.slide-right {
+   width: 0%;
+   left: 100%;
+   transition: .5s ease;
+}
+
+.main-item:hover .slide-left {
+   width: 0%;
+   transition: .5s ease;
+}
+
+.overlay.about {
+   background-color: #f7c1bb;
+}
+
+.overlay.resume {
+   background-color: #59f8e8;
+}
+
+.overlay.sketches {
+   background-color: #00cecb;
+}
+
+.overlay.music {
+   background-color: #c1cfda;
+}
