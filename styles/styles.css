@@ -91,15 +91,15 @@ main {
    background-color: #f7c1bb;
 }
 
-.overlay.resume {
-   background-color: #59f8e8;
-}
-
 .overlay.sketches {
    background-color: #00cecb;
 }
 
 .overlay.music {
+   background-color: #59f8e8;
+}
+
+.overlay.resume {
    background-color: #c1cfda;
 }
 
