@@ -15,6 +15,9 @@ body {
    scroll-snap-type: y mandatory;
 }
 
+.scroll-wrapper::-webkit-scrollbar { display: none; }
+.scroll-wrapper { -ms-overflow-style: none; }
+
 .scroll-item {
    height: 100vh;
    width: 100vw;
@@ -25,6 +28,7 @@ body {
 header {
    display: grid;
    place-items: center center;
+   font-size: large;
 }
 
 .main-item.about { grid-area: about; }
@@ -55,6 +59,7 @@ main {
    width: 100%;
    height: 100%;
    color: black;
+   padding: 10px;
 }
 
 .overlay {
@@ -70,13 +75,13 @@ main {
    place-items: center center;
 }
 
-.main-item:hover .overlay.slide-right {
+.slide-trigger:hover + .overlay.slide-right {
    width: 0%;
    left: 100%;
    transition: .4s ease;
 }
 
-.main-item:hover .slide-left {
+.slide-trigger:hover + .slide-left {
    width: 0%;
    transition: .5s ease;
 }
@@ -89,4 +94,15 @@ main {
 .overlay-title {
    color: white;
    font-size: large;
+}
+
+.slide-trigger {
+   position: absolute;
+   background-color: black;
+   width: 80%;
+   height: 80%;
+   top: 10%;
+   left: 10%;
+   opacity: 0;
+   z-index: 2;
 }
