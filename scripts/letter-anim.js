@@ -70,7 +70,7 @@ class Name {
 
    async animate() {
       let home = [];
-      for (let i=0; i<this.letters.length; i++){
+      for (let i = 0; i < this.letters.length; i++) {
          home.push(false);
       }
       let quit = false;
@@ -79,15 +79,15 @@ class Name {
 
       while (!quit) {
 
-         for(let i=0; i<this.letters.length; i++){
+         for (let i = 0; i < this.letters.length; i++) {
             this.letters[i].reduceX();
             this.letters[i].reduceY();
 
-            if(this.letters[i].home()){
+            if (this.letters[i].home()) {
                home[i] = true;
             }
 
-            if(!home.includes(false)){
+            if (!home.includes(false)) {
                quit = true;
             }
          }
