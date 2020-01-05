@@ -55,10 +55,20 @@ header {
    margin-bottom: 10px;
 }
 
+
+
+.scroll-btn:hover{
+   cursor: pointer;
+   transition: 0.1s ease;
+   transform: scale(1.4);
+   -moz-transform: scale(1.4);
+}
+
 .btn-txt{
    font-size: x-large;
    transform: rotate(180deg);
    z-index: 1;
+   transition: 0.1s ease;
 }
 
 .visible{
