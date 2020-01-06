@@ -12,7 +12,7 @@ body {
 
 a, a:visited, a:hover, a:active {
    color: black;
- }
+}
 
 /***************** scrolling *****************/
 .scroll-wrapper {
@@ -123,7 +123,6 @@ main {
 
 .content .title {
    font-size: larger;
-   text-decoration: underline;
 }
 
 
