@@ -52,12 +52,13 @@ class Letter {
 }
 
 class Name {
-   constructor(nameElements, max_x, max_y, delay) {
+   constructor(nameElements, max_x, max_y, delay, speed) {
       this.max_x = max_x;
       this.min_x = -max_x + 1;
       this.max_y = max_y;
       this.min_y = -max_y + 1;
       this.delay = delay;
+      this.speed = speed;
 
       this.initLetters(nameElements);
    }
@@ -93,7 +94,7 @@ class Name {
             }
          }
 
-         await new Promise(r => setTimeout(r, 5));
+         await new Promise(r => setTimeout(r, this.speed));
       }
 
       return ("done");

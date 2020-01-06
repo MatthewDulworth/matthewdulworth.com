@@ -5,14 +5,16 @@ let nameWrapper = document.querySelector("#name-wrapper");
 let isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 
 window.onload = async () => {
-   let name = new Name(nameElements, 100, 100, 500);
+   disableSelect(nameWrapper);
+   disableSelect(scrollBtn);
+   let name = new Name(nameElements, 100, 100, 500, 5);
    await name.animate();
 
    scrollBtn.classList.add("visible");
 }
 
-nameWrapper.addEventListener('click', e =>{
-   let name = new Name(nameElements, 100, 100, 100);
+nameWrapper.addEventListener('click', e => {
+   let name = new Name(nameElements, 100, 100, 200, 5);
    name.animate();
 });
 
@@ -31,4 +33,24 @@ async function safariScroll(px) {
       scrollWrapper.scrollTop += i;
       await new Promise(r => setTimeout(r, 0));
    }
+}
+
+// the following three functions for text selection disabling are taken from: https://solidlystated.com/scripting/proper-way-to-disable-text-selection-and-highlighting/
+function disableSelect(el) {
+   if (el.addEventListener) {
+      el.addEventListener("mousedown", disabler, "false");
+   } else {
+      el.attachEvent("onselectstart", disabler);
+   }
+}
+function enableSelect(el) {
+   if (el.addEventListener) {
+      el.removeEventListener("mousedown", disabler, "false");
+   } else {
+      el.detachEvent("onselectstart", disabler);
+   }
+}
+function disabler(e) {
+   if (e.preventDefault) { e.preventDefault(); }
+   return false;
 }
