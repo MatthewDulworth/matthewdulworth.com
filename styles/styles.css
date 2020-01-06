@@ -1,3 +1,4 @@
+/***************** general *****************/
 * {
    box-sizing: border-box;
 }
@@ -8,6 +9,8 @@ body {
    font-family: 'Courier New', Courier, monospace;
 }
 
+
+/***************** scrolling *****************/
 .scroll-wrapper {
    height: 100vh;
    width: 100vw;
@@ -26,6 +29,8 @@ body {
    scroll-snap-stop: normal;
 }
 
+
+/***************** header *****************/
 header {
    position: relative;
    display: flex;
@@ -34,6 +39,8 @@ header {
    justify-content: flex-end;
 }
 
+
+/***************** name *****************/
 .name-wrapper{
    /* the font size is essentially the spacing inbetwwen the letters of my name */
    font-size: 1px;
@@ -53,6 +60,8 @@ header {
    padding: 0;
 }
 
+
+/***************** scroll button *****************/
 .scroll-btn{
    opacity: 0;
    margin-bottom: 10px;
@@ -77,6 +86,8 @@ header {
    transition: 0.5s ease;
 }
 
+
+/***************** main content *****************/
 .main-item.about { grid-area: about; }
 .main-item.sketches { grid-area: sketches; }
 .main-item.music { grid-area: music; }
@@ -114,6 +125,8 @@ main {
 .music .content { border: 2px solid #c1cfda; }
 .resume .content { border: 2px solid #00cecb; }
 
+
+/***************** overlay *****************/
 .overlay {
    position: absolute;
    bottom: 0;
@@ -159,6 +172,8 @@ main {
    z-index: 2;
 }
 
+
+/***************** mobile button *****************/
 .scroll-btn-mobile {
    opacity: 0.5;
    display: none;
@@ -184,7 +199,8 @@ main {
    -moz-transform: scale(1.4);
 }
 
-/* mobile */
+
+/***************** mobile section *****************/
 @media (max-width: 600px) {
    main {
       grid-auto-rows: 50vh;
