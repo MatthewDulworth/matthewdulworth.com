@@ -1,9 +1,11 @@
-// ------- vars ------- //
+// ------- elements ------- //
 let scrollWrapper = document.querySelector(".scroll-wrapper");
 let nameElements = document.querySelectorAll(".name");
 let scrollBtn = document.querySelector(".scroll-btn");
 let scrollBtnMobile = document.querySelector(".scroll-btn-mobile");
 let nameWrapper = document.querySelector(".name-wrapper");
+
+// ------- vars ------- //
 let isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 let mql = window.matchMedia('(max-width: 600px)');
 let onMobile = false;
@@ -31,9 +33,9 @@ nameWrapper.addEventListener('click', e => {
 scrollBtn.addEventListener('click', e => {
    console.log(onMobile);
    if (isSafari) {
-      if(onMobile){
+      if (onMobile) {
          safariScroll(43);
-      } else{
+      } else {
          safariScroll(100);
       }
    }
