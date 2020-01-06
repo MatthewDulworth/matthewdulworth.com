@@ -35,7 +35,8 @@ header {
 }
 
 #name-wrapper{
-   font-size: 3px;
+   /* the font size is essentially the spacing inbetwwen the letters of my name */
+   font-size: 1px;
    position: absolute;
    top: 50%;
    left: 50%;
@@ -43,6 +44,8 @@ header {
 }
 
 .name {
+   /* added invisible outline becuase safari is bad and this fixes weird drawing issues during animations */
+   outline: 1px solid transparent;
    position: relative;
    font-size: large;
    margin: 0;
@@ -51,11 +54,8 @@ header {
 
 .scroll-btn{
    opacity: 0;
-   transition: 0.5s ease;
    margin-bottom: 10px;
 }
-
-
 
 .scroll-btn:hover{
    cursor: pointer;
