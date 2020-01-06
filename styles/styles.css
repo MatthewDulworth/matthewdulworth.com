@@ -104,16 +104,18 @@ main {
    margin: 0;
    padding: 0;
    position: relative;
+   display: grid;
+   place-items: center center;
 }
 
 
 /***************** content*****************/
 .content {
-   width: 100%;
-   height: 100%;
+   width: 90%;
+   height: 90%;
    overflow-wrap: normal;
    overflow-y: scroll;
-   padding: 7% 2.5% 2.5% 10%;
+   padding: 7% 2.5% 2.5% 7%;
 }
 
 .content .title {
@@ -121,43 +123,39 @@ main {
    text-decoration: underline;
 }
 
-/* .about .content { border: 2px solid #f7c1bb; }
-.sketches .content { border: 2px solid #59f8e8; }
-.music .content { border: 2px solid #c1cfda; }
-.resume .content { border: 2px solid #00cecb; } */
-
 
 /***************** overlay *****************/
 .overlay {
+   /* dimensions */
+   width: 100%;
+   height: 100%;
+
+   /* position */
    position: absolute;
    bottom: 0;
    left: 0;
    right: 0;
-   overflow: hidden;
-   width: 100%;
-   height: 100%;
-   transition: .2s ease;
+
+   /* children */
    display: grid;
    place-items: center center;
-   opacity: 1;
-   z-index: 1;
+
+   /* other */
+   overflow: hidden;
+   transition: .2s ease;
+   pointer-events: none;
 }
 
-.slide-trigger:hover + .overlay.slide-right, .slide-trigger:hover + .overlay.slide-right{ 
+.content:hover ~ .slide-right, .content:hover ~ .slide-right{ 
    width: 0%;
    left: 100%;
    transition: .4s ease;
 }
 
-.slide-trigger:hover + .slide-left, .slide-trigger:active + .slide-left {
+.content:hover ~ .slide-left, .content:active ~ .slide-left {
    width: 0%;
    transition: .5s ease;
 }
-
-/* .about .overlay{ background-color: #f7c1bb; }
-.sketches .overlay { background-color: #59f8e8; }
-.music .overlay { background-color: #c1cfda; }
-.resume .overlay { background-color: #00cecb; } */
 
 .about .overlay{ background-color: rgb(255, 255, 255); }
 .sketches .overlay { background-color: rgb(255, 255, 255); }
@@ -166,16 +164,6 @@ main {
 
 .overlay-title {
    font-size: x-large;
-}
-
-.slide-trigger {
-   position: absolute;
-   width: 80%;
-   height: 80%;
-   top: 10%;
-   left: 10%;
-   opacity: 0;
-   z-index: 2;
 }
 
 
