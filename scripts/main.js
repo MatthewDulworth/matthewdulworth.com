@@ -1,11 +1,17 @@
+// ------- vars ------- //
 let scrollWrapper = document.querySelector(".scroll-wrapper");
 let nameElements = document.querySelectorAll(".name");
 let scrollBtn = document.querySelector(".scroll-btn");
 let scrollBtnMobile = document.querySelector(".scroll-btn-mobile");
 let nameWrapper = document.querySelector(".name-wrapper");
 let isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+let mql = window.matchMedia('(max-width: 600px)');
+let onMobile = false;
 
+// ------- on page load do name animation ------- //
 window.onload = async () => {
+   onMobile = mql.matches;
+   console.log("mobile")
    disableSelect(nameWrapper);
    disableSelect(scrollBtn);
    disableSelect(scrollBtnMobile);
@@ -15,35 +21,44 @@ window.onload = async () => {
    scrollBtn.classList.add("visible");
 }
 
+// ------- on name click run new name animation ------- //
 nameWrapper.addEventListener('click', e => {
    let name = new Name(nameElements, 100, 100, 100, 5);
    name.animate();
 });
 
+// ------- scroll on scroll button click ------- //
 scrollBtn.addEventListener('click', e => {
+   console.log(onMobile);
    if (isSafari) {
-      safariScroll(100);
+      if(onMobile){
+         safariScroll(43);
+      } else{
+         safariScroll(100);
+      }
    }
    else {
       scrollWrapper.scrollTop += 1000;
    }
 });
 
+// ------- scroll on mobile scroll button click ------- //
 scrollBtnMobile.addEventListener('click', e => {
+   console.log(onMobile);
    if (isSafari) {
-      safariScroll(1);
+      safariScroll(50);
    }
    else {
       scrollWrapper.scrollTop += 800;
    }
 });
 
-var mql = window.matchMedia('(max-width: 600px)');
+// ------- check if on mobile or no ------- //
 mql.addListener(e => {
    if (e.matches) {
-      console.log("yeet");
+      onMobile = true;
    } else {
-      console.log("no yeet");
+      onMobile = false;
    }
 });
 
