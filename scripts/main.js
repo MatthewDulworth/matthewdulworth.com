@@ -15,7 +15,7 @@ window.onload = async () => {
    disableSelect(nameWrapper);
    disableSelect(scrollBtn);
    disableSelect(scrollBtnMobile);
-   let name = new Name(nameElements, 200, 200, 500, 0);
+   let name = new WordAssembleAnimation(nameElements, 200, 200, 500, 0);
    await name.animate();
 
    scrollBtn.classList.add("visible");
@@ -23,7 +23,7 @@ window.onload = async () => {
 
 // ------- on name click run new name animation ------- //
 nameWrapper.addEventListener('click', e => {
-   let name = new Name(nameElements, 200, 200, 200, 0);
+   let name = new WordAssembleAnimation(nameElements, 200, 200, 200, 0);
    name.animate();
 });
 
