@@ -118,7 +118,8 @@ main {
    height: 95%;
    width: 95%;
    padding: 5% 2.5% 2.5% 5%;
-   color: rgb(87, 87, 87);
+   /* color: rgb(87, 87, 87); */
+   color: black;
    overflow-wrap: normal;
    overflow-y: scroll;
 }
@@ -128,11 +129,10 @@ main {
    text-decoration: underline;
 }
 
-.about .content { border: 2px solid #f7c1bb; }
+/* .about .content { border: 2px solid #f7c1bb; }
 .sketches .content { border: 2px solid #59f8e8; }
 .music .content { border: 2px solid #c1cfda; }
-.resume .content { border: 2px solid #00cecb; }
-
+.resume .content { border: 2px solid #00cecb; } */
 
 /***************** overlay *****************/
 .overlay {
@@ -146,6 +146,8 @@ main {
    transition: .2s ease;
    display: grid;
    place-items: center center;
+   opacity: 1;
+   z-index: 1;
 }
 
 .slide-trigger:hover + .overlay.slide-right, .slide-trigger:hover + .overlay.slide-right{ 
@@ -159,13 +161,18 @@ main {
    transition: .5s ease;
 }
 
-.about .overlay{ background-color: #f7c1bb; }
+/* .about .overlay{ background-color: #f7c1bb; }
 .sketches .overlay { background-color: #59f8e8; }
 .music .overlay { background-color: #c1cfda; }
-.resume .overlay { background-color: #00cecb; }
+.resume .overlay { background-color: #00cecb; } */
+
+.about .overlay{ background-color: rgb(255, 255, 255); }
+.sketches .overlay { background-color: rgb(255, 255, 255); }
+.music .overlay { background-color: rgb(255, 255, 255); }
+.resume .overlay { background-color: rgb(255, 255, 255); }
 
 .overlay-title {
-   color: white;
+   color: black;
    font-size: x-large;
 }
 
