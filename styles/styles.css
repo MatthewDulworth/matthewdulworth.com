@@ -89,30 +89,6 @@ main {
    grid-template-areas: "about resume" "sketches music";
 }
 
-/* mobile */
-@media (max-width: 500px) {
-   main {
-      grid-auto-rows: 50vh;
-      grid-template-areas: "about" "resume" "sketches" "music";
-   }
-
-   .name {
-      font-size: large;
-   }
-
-   .overlay-title {
-      font-size: large;
-   }
-
-   .scroll-item{
-      scroll-snap-align: none;
-   } 
-
-   .scroll-item{ scroll-snap-align: end; }
-   .about{ scroll-snap-align: start; }
-   .sketches{ scroll-snap-align: start; }
-}
-
 .main-item {
    margin: 0;
    padding: 0;
@@ -181,4 +157,50 @@ main {
    left: 10%;
    opacity: 0;
    z-index: 2;
+}
+
+.scroll-btn-mobile {
+   opacity: 0.5;
+   display: none;
+   position: absolute;
+   bottom: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 3;
+   cursor: pointer;
+}
+
+.btn-text-mobile {
+   font-size: xx-large;
+   transform: rotate(180deg);
+   z-index: 1;
+   transition: 0.1s ease;
+}
+
+/* mobile */
+@media (max-width: 600px) {
+   main {
+      grid-auto-rows: 50vh;
+      grid-template-areas: "about" "resume" "sketches" "music";
+   }
+
+   .name {
+      font-size: large;
+   }
+
+   .overlay-title {
+      font-size: large;
+   }
+
+   .scroll-item{
+      scroll-snap-align: none;
+   } 
+
+   .scroll-btn-mobile {
+      display: block;
+   }
+
+   .scroll-item{ scroll-snap-align: end; }
+   .about{ scroll-snap-align: start; }
+   .sketches{ scroll-snap-align: start; }
 }

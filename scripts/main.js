@@ -1,12 +1,14 @@
 let scrollWrapper = document.querySelector(".scroll-wrapper");
 let nameElements = document.querySelectorAll(".name");
 let scrollBtn = document.querySelector(".scroll-btn");
+let scrollBtnMobile = document.querySelector(".scroll-btn-mobile");
 let nameWrapper = document.querySelector(".name-wrapper");
 let isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 
 window.onload = async () => {
    disableSelect(nameWrapper);
    disableSelect(scrollBtn);
+   disableSelect(scrollBtnMobile);
    let name = new Name(nameElements, 100, 100, 500, 5);
    await name.animate();
 
@@ -27,6 +29,24 @@ scrollBtn.addEventListener('click', e => {
    }
 });
 
+scrollBtnMobile.addEventListener('click', e => {
+   if (isSafari) {
+      safariScroll(1);
+   }
+   else {
+      scrollWrapper.scrollTop += 800;
+   }
+});
+
+var mql = window.matchMedia('(max-width: 600px)');
+mql.addListener(e => {
+   if (e.matches) {
+      console.log("yeet");
+   } else {
+      console.log("no yeet");
+   }
+});
+
 // hacky way to scroll on safari cuz safari sorta sucks and wont scroll the normal way like a normal browser
 async function safariScroll(px) {
    for (let i = 1; i <= px; i++) {
@@ -35,7 +55,7 @@ async function safariScroll(px) {
    }
 }
 
-// the following three functions for text selection disabling are taken from: https://solidlystated.com/scripting/proper-way-to-disable-text-selection-and-highlighting/
+// the following three functions for text selection disabling are adapted from: https://solidlystated.com/scripting/proper-way-to-disable-text-selection-and-highlighting/
 function disableSelect(el) {
    if (el.addEventListener) {
       el.addEventListener("mousedown", disabler, "false");
