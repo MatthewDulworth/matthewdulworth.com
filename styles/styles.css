@@ -48,7 +48,7 @@ header {
    /* added invisible outline becuase safari is bad and this fixes weird drawing issues during animations */
    outline: 1px solid transparent;
    position: relative;
-   font-size: large;
+   font-size: x-large;
    margin: 0;
    padding: 0;
 }
@@ -66,7 +66,7 @@ header {
 }
 
 .btn-txt{
-   font-size: x-large;
+   font-size: xx-large;
    transform: rotate(180deg);
    z-index: 1;
    transition: 0.1s ease;
@@ -151,7 +151,7 @@ main {
 
 .overlay-title {
    color: white;
-   font-size: large;
+   font-size: x-large;
 }
 
 .slide-trigger {
