@@ -177,6 +177,13 @@ main {
    transition: 0.1s ease;
 }
 
+.scroll-btn-mobile:hover{
+   cursor: pointer;
+   transition: 0.1s ease;
+   transform: scale(1.4);
+   -moz-transform: scale(1.4);
+}
+
 /* mobile */
 @media (max-width: 600px) {
    main {
