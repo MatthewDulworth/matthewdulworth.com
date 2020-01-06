@@ -78,7 +78,6 @@ header {
 .btn-txt{
    font-size: xx-large;
    transform: rotate(180deg);
-   z-index: 1;
    transition: 0.1s ease;
 }
 
@@ -88,7 +87,7 @@ header {
 }
 
 
-/***************** main content *****************/
+/***************** main item *****************/
 .main-item.about { grid-area: about; }
 .main-item.sketches { grid-area: sketches; }
 .main-item.music { grid-area: music; }
@@ -107,12 +106,14 @@ main {
    position: relative;
 }
 
+
+/***************** content*****************/
 .content {
    width: 100%;
    height: 100%;
    overflow-wrap: normal;
    overflow-y: scroll;
-   padding: 5% 2.5% 2.5% 5%;
+   padding: 7% 2.5% 2.5% 10%;
 }
 
 .content .title {
@@ -124,6 +125,7 @@ main {
 .sketches .content { border: 2px solid #59f8e8; }
 .music .content { border: 2px solid #c1cfda; }
 .resume .content { border: 2px solid #00cecb; } */
+
 
 /***************** overlay *****************/
 .overlay {
@@ -179,7 +181,6 @@ main {
 
 /***************** mobile button *****************/
 .scroll-btn-mobile {
-   opacity: 0.5;
    display: none;
    position: absolute;
    bottom: 10px;
@@ -192,11 +193,10 @@ main {
 .btn-text-mobile {
    font-size: xx-large;
    transform: rotate(180deg);
-   z-index: 1;
    transition: 0.1s ease;
 }
 
-.scroll-btn-mobile:hover{
+.scroll-btn-mobile:hover, .scroll-btn-mobile:hover{
    cursor: pointer;
    transition: 0.1s ease;
    transform: scale(1.4);
