@@ -34,7 +34,7 @@ header {
    justify-content: flex-end;
 }
 
-#name-wrapper{
+.name-wrapper{
    /* the font size is essentially the spacing inbetwwen the letters of my name */
    font-size: 1px;
    position: absolute;
@@ -48,7 +48,7 @@ header {
    /* added invisible outline becuase safari is bad and this fixes weird drawing issues during animations */
    outline: 1px solid transparent;
    position: relative;
-   font-size: x-large;
+   font-size: large;
    margin: 0;
    padding: 0;
 }
@@ -93,6 +93,14 @@ main {
    main {
       grid-template-areas: "about resume" "sketches music";
    }
+
+   .name {
+      font-size: x-large;
+   }
+
+   .overlay-title {
+      font-size: x-large;
+   }
 }
 
 .main-item {
@@ -133,13 +141,13 @@ main {
    place-items: center center;
 }
 
-.slide-trigger:hover + .overlay.slide-right {
+.slide-trigger:hover + .overlay.slide-right, .slide-trigger:hover + .overlay.slide-right{ 
    width: 0%;
    left: 100%;
    transition: .4s ease;
 }
 
-.slide-trigger:hover + .slide-left {
+.slide-trigger:hover + .slide-left, .slide-trigger:active + .slide-left {
    width: 0%;
    transition: .5s ease;
 }
@@ -151,7 +159,7 @@ main {
 
 .overlay-title {
    color: white;
-   font-size: x-large;
+   font-size: large;
 }
 
 .slide-trigger {

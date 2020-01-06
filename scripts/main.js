@@ -1,7 +1,7 @@
 let scrollWrapper = document.querySelector(".scroll-wrapper");
 let nameElements = document.querySelectorAll(".name");
 let scrollBtn = document.querySelector(".scroll-btn");
-let nameWrapper = document.querySelector("#name-wrapper");
+let nameWrapper = document.querySelector(".name-wrapper");
 let isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 
 window.onload = async () => {
@@ -14,7 +14,7 @@ window.onload = async () => {
 }
 
 nameWrapper.addEventListener('click', e => {
-   let name = new Name(nameElements, 100, 100, 200, 5);
+   let name = new Name(nameElements, 100, 100, 100, 5);
    name.animate();
 });
 
