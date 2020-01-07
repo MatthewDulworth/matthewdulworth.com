@@ -14,6 +14,17 @@ a, a:visited, a:hover, a:active {
    color: black;
 }
 
+hr{
+   color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-size: large;
+   margin: 0;
+   padding: 0;
+   font-weight: normal;
+}
+
 /***************** scrolling *****************/
 .scroll-wrapper {
    height: 100vh;
@@ -119,10 +130,11 @@ main {
    overflow-wrap: normal;
    overflow-y: scroll;
    padding: 7% 2.5% 2.5% 7%;
+   font-size: 15px;
 }
 
 .content .title {
-   font-size: larger;
+   font-size: large;
 }
 
 
