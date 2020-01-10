@@ -103,7 +103,7 @@ header {
 
 /***************** main item *****************/
 .main-item.about { grid-area: about; }
-.main-item.sketches { grid-area: sketches; }
+.main-item.projects { grid-area: projects; }
 .main-item.music { grid-area: music; }
 .main-item.resume { grid-area: resume; }
 
@@ -111,7 +111,7 @@ main {
    display: grid;
    grid-auto-rows: minmax(350px, 1fr);
    grid-auto-columns: minmax(350px, 1fr);
-   grid-template-areas: "about resume" "sketches music";
+   grid-template-areas: "about resume" "projects music";
 }
 
 .main-item {
@@ -172,7 +172,7 @@ main {
 }
 
 .about .overlay{ background-color: rgb(255, 255, 255); }
-.sketches .overlay { background-color: rgb(255, 255, 255); }
+.projects .overlay { background-color: rgb(255, 255, 255); }
 .music .overlay { background-color: rgb(255, 255, 255); }
 .resume .overlay { background-color: rgb(255, 255, 255); }
 
@@ -210,7 +210,7 @@ main {
 @media (max-width: 600px) {
    main {
       grid-auto-rows: 50vh;
-      grid-template-areas: "about" "resume" "sketches" "music";
+      grid-template-areas: "about" "resume" "projects" "music";
    }
 
    .name {
@@ -231,5 +231,5 @@ main {
 
    .scroll-item{ scroll-snap-align: end; }
    .about{ scroll-snap-align: start; }
-   .sketches{ scroll-snap-align: start; }
+   .projects{ scroll-snap-align: start; }
 }
