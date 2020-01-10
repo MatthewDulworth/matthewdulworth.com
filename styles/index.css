@@ -1,32 +1,15 @@
-/***************** general *****************/
-* {
-   box-sizing: border-box;
-}
-
+/****************************** mobile ******************************/
 body {
-   margin: 0;
-   padding: 0;
-   font-family: 'Courier New', Courier, monospace;
-   color: black;
+   height: 100vh;
 }
 
-a, a:visited, a:hover, a:active {
-   color: black;
+
+/****************************** desktop ******************************/
+@media (min-width: 600px) {
+
 }
 
-hr{
-   color: black;
-}
-
-h1, h2, h3, h4, h5, h6 {
-   font-size: large;
-   margin: 0;
-   padding: 0;
-   font-weight: normal;
-}
-
-/***************** scrolling *****************/
-.scroll-wrapper {
+/* body {
    height: 100vh;
    width: 100vw;
    scroll-behavior: smooth;
@@ -34,202 +17,12 @@ h1, h2, h3, h4, h5, h6 {
    scroll-snap-type: y mandatory;
 }
 
-.scroll-wrapper::-webkit-scrollbar { display: none; }
-.scroll-wrapper { -ms-overflow-style: none; }
+body::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; }
 
-.scroll-item {
+body {
    height: 100vh;
    width: 100vw;
    scroll-snap-align: start;
    scroll-snap-stop: normal;
-}
-
-
-/***************** header *****************/
-header {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: flex-end;
-}
-
-
-/***************** name *****************/
-.name-wrapper{
-   /* the font size is essentially the spacing inbetwwen the letters of my name */
-   font-size: 1px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   cursor: pointer;
-}
-
-.name {
-   /* added invisible outline becuase safari is bad and this fixes weird drawing issues during animations */
-   outline: 1px solid transparent;
-   position: relative;
-   font-size: x-large;
-   margin: 0;
-   padding: 0;
-}
-
-
-/***************** scroll button *****************/
-.scroll-btn{
-   opacity: 0;
-   margin-bottom: 10px;
-}
-
-.scroll-btn:hover{
-   cursor: pointer;
-   transition: 0.1s ease;
-   transform: scale(1.4);
-   -moz-transform: scale(1.4);
-}
-
-.btn-txt{
-   font-size: xx-large;
-   transform: rotate(180deg);
-   transition: 0.1s ease;
-}
-
-.visible{
-   opacity: 1;
-   transition: 0.5s ease;
-}
-
-
-/***************** main item *****************/
-.main-item.about { grid-area: about; }
-.main-item.projects { grid-area: projects; }
-.main-item.music { grid-area: music; }
-.main-item.resume { grid-area: resume; }
-
-main {
-   display: grid;
-   grid-auto-rows: minmax(350px, 1fr);
-   grid-auto-columns: minmax(350px, 1fr);
-   grid-template-areas: "about resume" "projects music";
-}
-
-.main-item {
-   margin: 0;
-   padding: 0;
-   position: relative;
-   display: grid;
-   place-items: center center;
-}
-
-
-/***************** content*****************/
-.content {
-   width: 90%;
-   height: 90%;
-   overflow-wrap: normal;
-   overflow-y: scroll;
-   padding: 7% 2.5% 2.5% 7%;
-   font-size: 15px;
-}
-
-.content .title {
-   font-size: large;
-}
-
-
-/***************** overlay *****************/
-.overlay {
-   /* dimensions */
-   width: 100%;
-   height: 100%;
-
-   /* position */
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   right: 0;
-
-   /* children */
-   display: grid;
-   place-items: center center;
-
-   /* other */
-   overflow: hidden;
-   transition: .2s ease;
-   pointer-events: none;
-}
-
-.content:hover ~ .slide-right, .content:hover ~ .slide-right{ 
-   width: 0%;
-   left: 100%;
-   transition: .4s ease;
-}
-
-.content:hover ~ .slide-left, .content:active ~ .slide-left {
-   width: 0%;
-   transition: .4s ease;
-}
-
-.about .overlay{ background-color: rgb(255, 255, 255); }
-.projects .overlay { background-color: rgb(255, 255, 255); }
-.music .overlay { background-color: rgb(255, 255, 255); }
-.resume .overlay { background-color: rgb(255, 255, 255); }
-
-.overlay-title {
-   font-size: x-large;
-}
-
-
-/***************** mobile button *****************/
-.scroll-btn-mobile {
-   display: none;
-   position: absolute;
-   bottom: 10px;
-   left: 50%;
-   transform: translateX(-50%);
-   z-index: 3;
-   cursor: pointer;
-}
-
-.btn-text-mobile {
-   font-size: xx-large;
-   transform: rotate(180deg);
-   transition: 0.1s ease;
-}
-
-.scroll-btn-mobile:hover, .scroll-btn-mobile:hover{
-   cursor: pointer;
-   transition: 0.1s ease;
-   transform: scale(1.4);
-   -moz-transform: scale(1.4);
-}
-
-
-/***************** mobile section *****************/
-@media (max-width: 600px) {
-   main {
-      grid-auto-rows: 50vh;
-      grid-template-areas: "about" "resume" "projects" "music";
-   }
-
-   .name {
-      font-size: large;
-   }
-
-   .overlay-title {
-      font-size: large;
-   }
-
-   .scroll-item{
-      scroll-snap-align: none;
-   } 
-
-   .scroll-btn-mobile {
-      display: block;
-   }
-
-   .scroll-item{ scroll-snap-align: end; }
-   .about{ scroll-snap-align: start; }
-   .projects{ scroll-snap-align: start; }
-}
+} */
