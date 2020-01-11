@@ -1,28 +1,97 @@
 /****************************** mobile ******************************/
-body {
-   height: 100vh;
-}
+@media all {
 
+   /***************** scrolling *****************/
+   .scroll-wrapper {
+      height: 100vh;
+      width: 100vw;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+   }
+
+   .scroll-wrapper::-webkit-scrollbar {
+      display: none;
+   }
+
+   .scroll-wrapper {
+      -ms-overflow-style: none;
+   }
+
+   .scroll-item {
+      height: 100vh;
+      width: 100vw;
+      scroll-snap-align: start;
+      scroll-snap-stop: normal;
+   }
+
+
+   /***************** header *****************/
+   header {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+   }
+
+
+   /***************** name *****************/
+   .name-container {
+      /* dimensions */
+      width: 100%;
+
+      /* position */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      /* display */
+      display: flex;
+      justify-content: center;
+   }
+
+   .name-wrapper {
+      cursor: pointer;
+      font-size: 1px;
+   }
+
+   .name {
+      /* added invisible outline becuase safari is bad and this fixes weird drawing issues during animations */
+      outline: 1px solid transparent;
+      position: relative;
+      font-size: 24px;
+      margin: 0;
+      padding: 0;
+   }
+
+
+   /***************** scroll button *****************/
+   .scroll-btn{
+      margin-bottom: 10px;
+      transition: 0.1s ease;
+   }
+
+   .scroll-btn:active{
+      transform: scale(1.4);
+      -moz-transform: scale(1.4);
+   }
+   
+   .btn-txt {
+      font-size: 3em;
+      transform: rotate(180deg);
+      transition: 0.1s ease;
+   }
+
+}
 
 /****************************** desktop ******************************/
+
 @media (min-width: 600px) {
-
+   .scroll-btn:hover {
+      cursor: pointer;
+      transform: scale(1.4);
+      -moz-transform: scale(1.4);
+   }
 }
-
-/* body {
-   height: 100vh;
-   width: 100vw;
-   scroll-behavior: smooth;
-   overflow-y: scroll;
-   scroll-snap-type: y mandatory;
-}
-
-body::-webkit-scrollbar { display: none; }
-body { -ms-overflow-style: none; }
-
-body {
-   height: 100vh;
-   width: 100vw;
-   scroll-snap-align: start;
-   scroll-snap-stop: normal;
-} */
