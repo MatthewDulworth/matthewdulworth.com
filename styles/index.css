@@ -1,6 +1,5 @@
 /****************************** mobile ******************************/
 @media all {
-
    /***************** scrolling *****************/
    .scroll-wrapper {
       height: 100vh;
@@ -9,23 +8,18 @@
       overflow-y: scroll;
       scroll-snap-type: y mandatory;
    }
-
    .scroll-wrapper::-webkit-scrollbar {
       display: none;
    }
-
    .scroll-wrapper {
       -ms-overflow-style: none;
    }
-
    .scroll-item {
       height: 100vh;
       width: 100vw;
       scroll-snap-align: start;
       scroll-snap-stop: normal;
    }
-
-
    /***************** header *****************/
    header {
       position: relative;
@@ -34,30 +28,24 @@
       align-items: center;
       justify-content: flex-end;
    }
-
-
    /***************** name *****************/
-   .name-container {
+   .name-wrapper {
       /* dimensions */
       width: 100%;
-
       /* position */
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-
       /* display */
       display: flex;
       justify-content: center;
    }
-
-   .name-wrapper {
+   .name {
       cursor: pointer;
       font-size: 1px;
    }
-
-   .name {
+   .letter {
       /* added invisible outline becuase safari is bad and this fixes weird drawing issues during animations */
       outline: 1px solid transparent;
       position: relative;
@@ -65,33 +53,54 @@
       margin: 0;
       padding: 0;
    }
-
-
    /***************** scroll button *****************/
-   .scroll-btn{
+   .scroll-btn {
       margin-bottom: 10px;
       transition: 0.1s ease;
    }
-
-   .scroll-btn:active{
+   .scroll-btn:active {
       transform: scale(1.4);
       -moz-transform: scale(1.4);
    }
-   
    .btn-txt {
       font-size: 3em;
       transform: rotate(180deg);
       transition: 0.1s ease;
    }
+   /***************** main *****************/
+   .main-item.about { grid-area: about; }
+   .main-item.resume { grid-area: experience; }
+   .main-item.projects { grid-area: projects; }
+   .main-item.music { grid-area: music; }
 
+   main {
+      display: grid;
+      grid-template-areas: "about" "experience" "projects" "music";
+   }
+   .main-item.btn {
+      display: grid;
+      place-items: center center;
+   }
+   .main-item .trigger {
+      width: 70%;
+      height: 70%;
+      cursor: pointer;
+      display: grid;
+      place-items: center center;
+   }
+   .main-item h3 {
+      font-size: 1.5em;
+   }
 }
 
 /****************************** desktop ******************************/
-
 @media (min-width: 600px) {
    .scroll-btn:hover {
       cursor: pointer;
       transform: scale(1.4);
       -moz-transform: scale(1.4);
+   }
+   main {
+      grid-template-areas: "about experience" "projects music";
    }
 }
