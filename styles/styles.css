@@ -1,4 +1,5 @@
 /***************** general *****************/
+
 * {
    box-sizing: border-box;
 }
@@ -15,7 +16,7 @@ a, a:visited, a:hover, a:active {
    color: black;
 }
 
-hr{
+hr {
    color: black;
 }
 
@@ -24,4 +25,14 @@ h1, h2, h3, h4, h5, h6 {
    margin: 0;
    padding: 0;
    font-weight: normal;
+}
+
+/* adapted from: https://stackoverflow.com/a/4407335 */
+.noselect {
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
