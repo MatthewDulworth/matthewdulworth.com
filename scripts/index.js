@@ -8,8 +8,18 @@ let isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return
 
 // ------- on page load ------- //
 window.onload = async () => {
-   let name = new WordAssembleAnimation(letters, 300, 300, 500, 0);
-   await name.animate();
 
+   await animateName(letters);
    scrollBtn.classList.add("visible");
 };
+
+
+async function animateName(elements) {
+   let xSpread = 300, ySpread = 300;
+   if (window.innerWidth < 600) {
+      xSpread = 90;
+      ySpread = 200;
+   }
+   let name = new WordAssembleAnimation(elements, xSpread, ySpread, 500, 0);
+   await name.animate();
+}
