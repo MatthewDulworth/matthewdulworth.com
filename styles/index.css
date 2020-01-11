@@ -82,6 +82,8 @@
       display: grid;
       grid-template-areas: "about" "experience" "projects" "music";
    }
+
+   /***************** main button *****************/
    .main-item.btn {
       display: grid;
       place-items: center center;
@@ -95,6 +97,11 @@
    }
    .main-item h3 {
       font-size: 1.5em;
+   }
+
+   /***************** container *****************/
+   .container {
+      display: none;
    }
 }
 
