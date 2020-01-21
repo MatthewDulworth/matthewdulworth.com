@@ -6,7 +6,10 @@ class Letter {
       this.element.style.left = 0 + "px";
       this.element.style.bottom = 0 + "px";
       this.parent = parent;
-      this.setRandomPos();
+      this.targetX;
+      this.targetY;
+      this.atTarget = false;
+      this.setRandomTarget();
    }
 
    // gives the element a random position based on the max and min set by the WordAssembleAnimation
@@ -14,6 +17,11 @@ class Letter {
       let x = Math.floor(Math.random() * (this.parent.max_x - this.parent.min_x) + this.parent.min_x);
       let y = Math.floor(Math.random() * (this.parent.max_y - this.parent.min_y) + this.parent.min_y);
       this.setPos(x, y);
+   }
+
+   setRandomTarget() {
+      this.targetX = Math.floor(Math.random() * (this.parent.max_x - this.parent.min_x) + this.parent.min_x);
+      this.targetY = Math.floor(Math.random() * (this.parent.max_y - this.parent.min_y) + this.parent.min_y);
    }
 
    // sets element position
@@ -41,6 +49,65 @@ class Letter {
       }
       else if (current_y < 0) {
          this.element.style.bottom = (current_y + 1) + "px";
+      }
+   }
+
+   moveX(target, speed) {
+      let currentX = this.currentX();
+
+      // if the current x position is greater than the target x position 
+      if (currentX > target) {
+
+         if ((currentX - speed) < target) {
+            this.element.style.left = (currentX - 1) + "px";
+         } else {
+            this.element.style.left = (currentX - speed) + "px";
+         }
+         return false;
+      }
+
+      // if it is smaller
+      else if (currentX < target) {
+
+         if ((currentX + speed) > target) {
+            this.element.style.left = (currentX + 1) + "px";
+         } else {
+            this.element.style.left = (currentX + speed) + "px";
+         }
+         return false;
+      }
+
+      // if the current x position is at the target x, return true
+      else {
+         return true;
+      }
+   }
+
+   moveY(target, speed) {
+      let currentY = this.currentY();
+
+      if (currentY > target) {
+
+         if ((currentY - speed) < target) {
+            this.element.style.bottom = (currentY - 1) + "px";
+         } else {
+            this.element.style.bottom = (currentY - speed) + "px";
+         }
+         return false;
+      }
+
+      else if (currentY < target) {
+
+         if ((currentY + speed) > target) {
+            this.element.style.bottom = (currentY + 1) + "px";
+         } else {
+            this.element.style.bottom = (currentY + speed) + "px";
+         }
+         return false;
+      }
+      
+      else {
+         return true;
       }
    }
 
@@ -76,6 +143,8 @@ class WordAssembleAnimation {
       this.min_y = -max_y + 1;
       this.delay = delay;
       this.speed = speed;
+      this.explodeSpeed = 10;
+      this.assembleSpeed = 1;
 
       this.initLetters(nameElements);
    }
@@ -88,6 +157,43 @@ class WordAssembleAnimation {
       });
    }
 
+   async explode() {
+
+      let lettersAtTarget = [];
+
+      while (lettersAtTarget.length < this.letters.length) {
+
+         this.letters.forEach(letter => {
+
+            if (!letter.atTarget) {
+               let xAtTarget = letter.moveX(letter.targetX, this.explodeSpeed);
+               let yAtTarget = letter.moveY(letter.targetY, this.explodeSpeed);
+
+               if (xAtTarget && yAtTarget) {
+                  letter.atTarget = true;
+                  lettersAtTarget.push(true);
+               }
+            }
+         });
+         await new Promise(r => setTimeout(r, this.speed));
+      }
+      return ("done");
+   }
+
+   async assemble() {
+      let lettersAtHome = [];
+
+      while (lettersAtHome.length < this.letters.length) {
+
+         this.letters.forEach(letter => {
+
+            if (!letter.atHome) {
+               let xAt
+            }
+         });
+      }
+   }
+
    // runs the animation 
    async animate() {
       let home = [];
@@ -95,6 +201,9 @@ class WordAssembleAnimation {
          home.push(false);
       }
       let quit = false;
+
+
+      await this.explode();
 
       await new Promise(r => setTimeout(r, this.delay));
 
