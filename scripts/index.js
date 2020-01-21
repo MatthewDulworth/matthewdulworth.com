@@ -12,10 +12,10 @@ let isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return
 
 // ------- on page load ------- //
 window.onload = async () => {
-   loadBtn(aboutSection, ".about.btn.container");
-   loadBtn(experienceSection, ".experience.btn.container");
-   loadBtn(projectsSection, ".projects.btn.container");
-   loadBtn(musicSection, ".music.btn.container");
+   loadBtn(aboutSection, ".about.btn.storage", ".about.content.storage");
+   loadBtn(experienceSection, ".experience.btn.storage", ".experience.content.storage");
+   loadBtn(projectsSection, ".projects.btn.storage", ".projects.content.storage");
+   loadBtn(musicSection, ".music.btn.storage", ".music.content.storage");
 
    await animateName(letters);
    scrollBtn.classList.add("visible");
@@ -32,10 +32,20 @@ async function animateName(elements) {
    await name.animate();
 }
 
-function loadBtn(parent, containerSelector){
+// ------- loads button html into an element ------- //
+function loadBtn(parent, btnStorage, contentStorage) {
    parent.classList.add("btn");
-   parent.innerHTML = document.querySelector(containerSelector).innerHTML;
-   parent.querySelector(".trigger").addEventListener('click', e =>{
-      console.log("yeet");
+   parent.innerHTML = document.querySelector(btnStorage).innerHTML;
+
+   parent.querySelector(".trigger").addEventListener('click', e => {
+      parent.classList.remove("btn");
+      parent.classList.add("fullscreen");
+      loadContent(parent, contentStorage, btnStorage);
+      console.log("fullscreen");
    });
+}
+
+// ------- loads content into an element ------- //
+function loadContent(parent, contentStorage, btnStorage) {
+   parent.innerHTML = document.querySelector(contentStorage).innerHTML;
 }
