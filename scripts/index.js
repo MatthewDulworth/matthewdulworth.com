@@ -28,7 +28,7 @@ async function animateName(elements) {
       xSpread = 90;
       ySpread = 200;
    }
-   let name = new WordAssembleAnimation(elements, xSpread, ySpread, 500, 0);
+   let name = new WordExplodeAnimation(elements, xSpread, ySpread, 500, 0);
    await name.run();
 }
 

@@ -102,7 +102,7 @@ class Letter {
 
 
 // -------- class for a word assembly animation ------- //
-class WordAssembleAnimation {
+class WordExplodeAnimation {
    constructor(nameElements, max_x, max_y, delay, speed) {
       this.max_x = max_x;
       this.min_x = -max_x + 1;
