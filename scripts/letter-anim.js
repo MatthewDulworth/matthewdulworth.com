@@ -30,29 +30,7 @@ class Letter {
       this.element.style.bottom = y + "px";
    }
 
-   // brings the x position closer to 0 by 1
-   reduceX() {
-      let current_x = this.currentX();
-      if (current_x > 0) {
-         this.element.style.left = (current_x - 1) + "px";
-      }
-      else if (current_x < 0) {
-         this.element.style.left = (current_x + 1) + "px";
-      }
-   }
-
-   // brings the y position closer to zero by 1
-   reduceY() {
-      let current_y = this.currentY();
-      if (current_y > 0) {
-         this.element.style.bottom = (current_y - 1) + "px";
-      }
-      else if (current_y < 0) {
-         this.element.style.bottom = (current_y + 1) + "px";
-      }
-   }
-
-   moveX(target, speed) {
+   stepX(target, speed) {
       let currentX = this.currentX();
 
       // if the current x position is greater than the target x position 
@@ -83,7 +61,7 @@ class Letter {
       }
    }
 
-   moveY(target, speed) {
+   stepY(target, speed) {
       let currentY = this.currentY();
 
       if (currentY > target) {
@@ -109,11 +87,6 @@ class Letter {
       else {
          return true;
       }
-   }
-
-   // checks if x and y coordinates are 0
-   home() {
-      return (this.currentX() === 0 && this.currentY() === 0);
    }
 
    // gets current x position 
@@ -170,11 +143,11 @@ class WordAssembleAnimation {
 
                // step the letter to the target
                if (explode) {
-                  xAtTarget = letter.moveX(letter.targetX, 10);
-                  yAtTarget = letter.moveY(letter.targetY, 10);
+                  xAtTarget = letter.stepX(letter.targetX, 10);
+                  yAtTarget = letter.stepY(letter.targetY, 10);
                } else {
-                  xAtTarget = letter.moveX(0, 1);
-                  yAtTarget = letter.moveY(0, 1);
+                  xAtTarget = letter.stepX(0, 1);
+                  yAtTarget = letter.stepY(0, 1);
                }
 
                // check if the letter is at the target
