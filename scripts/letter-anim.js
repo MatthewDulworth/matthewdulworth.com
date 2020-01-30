@@ -105,7 +105,7 @@ class Letter {
          }
          return false;
       }
-      
+
       else {
          return true;
       }
@@ -129,12 +129,6 @@ class Letter {
 
 
 // -------- class for a word assembly animation ------- //
-// splits the word out into random positions and then reassembles it
-// takes in a list of elements that are the letters of the name 
-// elements should be spans with position: relative
-// max x and y are the furthest a letter position can be randomized
-// delay is the delay before animation starts after randomization
-// speed is wait between animation frames
 class WordAssembleAnimation {
    constructor(nameElements, max_x, max_y, delay, speed) {
       this.max_x = max_x;
@@ -157,18 +151,33 @@ class WordAssembleAnimation {
       });
    }
 
-   async explode() {
+   async animate(explode) {
 
+      // make sure no letters are at target
       let lettersAtTarget = [];
+      this.letters.forEach(letter => letter.atTarget = false);
 
+      // loop until all letters are at the target
       while (lettersAtTarget.length < this.letters.length) {
 
+         // loop once for each letter
          this.letters.forEach(letter => {
 
+            // if the letter is not at the target, step it towrads the target
             if (!letter.atTarget) {
-               let xAtTarget = letter.moveX(letter.targetX, this.explodeSpeed);
-               let yAtTarget = letter.moveY(letter.targetY, this.explodeSpeed);
+               let xAtTarget
+               let yAtTarget
 
+               // step the letter to the target
+               if (explode) {
+                  xAtTarget = letter.moveX(letter.targetX, 10);
+                  yAtTarget = letter.moveY(letter.targetY, 10);
+               } else {
+                  xAtTarget = letter.moveX(0, 1);
+                  yAtTarget = letter.moveY(0, 1);
+               }
+
+               // check if the letter is at the target
                if (xAtTarget && yAtTarget) {
                   letter.atTarget = true;
                   lettersAtTarget.push(true);
@@ -177,54 +186,12 @@ class WordAssembleAnimation {
          });
          await new Promise(r => setTimeout(r, this.speed));
       }
-      return ("done");
-   }
-
-   async assemble() {
-      let lettersAtHome = [];
-
-      while (lettersAtHome.length < this.letters.length) {
-
-         this.letters.forEach(letter => {
-
-            if (!letter.atHome) {
-               let xAt
-            }
-         });
-      }
    }
 
    // runs the animation 
-   async animate() {
-      let home = [];
-      for (let i = 0; i < this.letters.length; i++) {
-         home.push(false);
-      }
-      let quit = false;
-
-
-      await this.explode();
-
+   async run() {
+      await this.animate(true);
       await new Promise(r => setTimeout(r, this.delay));
-
-      while (!quit) {
-
-         for (let i = 0; i < this.letters.length; i++) {
-            this.letters[i].reduceX();
-            this.letters[i].reduceY();
-
-            if (this.letters[i].home()) {
-               home[i] = true;
-            }
-
-            if (!home.includes(false)) {
-               quit = true;
-            }
-         }
-
-         await new Promise(r => setTimeout(r, this.speed));
-      }
-
-      return ("done");
+      await this.animate(false);
    }
 }

@@ -29,7 +29,7 @@ async function animateName(elements) {
       ySpread = 200;
    }
    let name = new WordAssembleAnimation(elements, xSpread, ySpread, 500, 0);
-   await name.animate();
+   await name.run();
 }
 
 // ------- loads button html into an element ------- //
