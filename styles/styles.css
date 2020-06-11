@@ -1,6 +1,18 @@
 /***************** general *****************/
+
 * {
    box-sizing: border-box;
+}
+
+html, body {
+   margin: 0;
+   height: 100vh;
+}
+
+body {
+   font-family: 'Anonymous Pro', monospace;
+   background-color: black;
+   color: white;
 }
 
 /* adapted from: https://stackoverflow.com/a/4407335 */
