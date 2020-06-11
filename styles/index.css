@@ -1,0 +1,31 @@
+
+body {
+   display: grid;
+   place-items: center;
+}
+
+main {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.name {
+   font-size: 1.5rem;
+}
+
+
+nav {
+   margin-top: 2rem;
+   display: flex;
+}
+
+nav div{
+   cursor: pointer
+}
+
+nav :nth-child(2){
+   margin-right: 2rem;
+   margin-left: 2rem;
+}
