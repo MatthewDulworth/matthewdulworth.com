@@ -39,8 +39,11 @@ nav {
 }
 
 .menu-wrapper div {
+   position: relative;
+   right: -5rem;
    margin-top: 2rem;
    cursor: pointer;
+   transition: 0.5s
 }
 
 .menu-wrapper div:first-child {
@@ -52,6 +55,10 @@ nav {
    margin: 0;
 }
 
-.menu-wrapper div :nth-child(2){
-   display: none;
+/* nav bar animations */
+
+.menu-wrapper div:hover {
+   transition: 0.5s;
+   right: -1rem;
+   color: #cccccc
 }
