@@ -25,3 +25,29 @@ hr {
 .subtitle {
    font-style: italic;
 }
+
+@media (max-width: 799px) {
+   body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+   }
+
+   main {
+      margin: 8rem 0rem 5rem;
+   }
+
+   .trigger {
+      padding: 1rem 0rem;
+   }
+}
+
+@media (max-width: 350px) {
+   main {
+      margin-top: 7rem;
+   }
+
+   .subtitle {
+      font-size: 0.8rem;
+   }
+}
