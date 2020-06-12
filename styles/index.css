@@ -1,10 +1,11 @@
-
 body {
    display: grid;
    place-items: center;
+   color: #7f7f7f;
 }
 
-/* main section */
+/* title */
+
 main {
    display: flex;
    flex-direction: column;
@@ -14,6 +15,7 @@ main {
 
 .name {
    font-size: 1.5rem;
+   color: white;
 }
 
 hr {
@@ -21,19 +23,17 @@ hr {
 }
 
 .subtitle {
-   opacity: 0.5;
    font-style: italic;
 }
 
 /* nav bar */
+
 nav {
    position: fixed;
    top: 75%;
    left: 50%;
    transform: translate(-50%, 0);
-
    display: flex;
-   color: #7f7f7f;
    font-size: 0.9rem;
 }
 
@@ -45,11 +45,11 @@ nav div:first-child {
    margin: 0;
 }
 
-nav div span{
+nav div span {
    padding: 0;
    margin: 0;
 }
 
-nav div :nth-child(2){
+nav div :nth-child(2) {
    cursor: pointer
 }
