@@ -1,4 +1,3 @@
-
 body {
    display: grid;
    place-items: center;
@@ -6,6 +5,7 @@ body {
 }
 
 /* title */
+
 main {
    display: flex;
    flex-direction: column;
@@ -24,41 +24,4 @@ hr {
 
 .subtitle {
    font-style: italic;
-}
-
-/* nav bar */
-nav {
-   position: fixed;
-   top: 50%;
-   right: 1rem;
-   transform: translate(0, -50%);
-
-   display: flex;
-   flex-direction: column;
-   font-size: 0.9rem;
-}
-
-.menu-wrapper div {
-   position: relative;
-   right: -5rem;
-   margin-top: 2rem;
-   cursor: pointer;
-   transition: 0.5s
-}
-
-.menu-wrapper div:first-child {
-   margin: 0;
-}
-
-.menu-wrapper div span{
-   padding: 0;
-   margin: 0;
-}
-
-/* nav bar animations */
-
-.menu-wrapper div:hover {
-   transition: 0.5s;
-   right: -1rem;
-   color: #cccccc
 }

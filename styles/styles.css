@@ -15,7 +15,7 @@ body {
    color: white;
 }
 
-.current-tab{
+#current-tab {
    color: white;
 }
 
@@ -28,4 +28,37 @@ body {
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
+}
+
+/* nav bar */
+
+nav {
+   position: fixed;
+   top: 50%;
+   right: 1rem;
+   transform: translate(0, -50%);
+   display: flex;
+   flex-direction: column;
+   font-size: 0.9rem;
+}
+
+.trigger {
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+}
+
+.trigger div {
+   position: relative;
+   right: -5rem;
+   cursor: pointer;
+   transition: 0.5s
+}
+
+/* nav bar animations */
+
+.trigger:hover div {
+   transition: 0.5s;
+   transform: scale(1.1);
+   right: 1rem;
+   color: #cccccc
 }
