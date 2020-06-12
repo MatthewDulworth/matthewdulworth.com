@@ -38,7 +38,11 @@ hr {
    }
 
    .trigger {
-      padding: 1rem 0rem;
+      padding: 1.5rem 0rem;
+   }
+
+   nav {
+      padding-left: 1.5rem;
    }
 }
 
