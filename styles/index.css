@@ -61,6 +61,10 @@
       font-size: 0.9rem;
    }
    /*************** home ***************/
+   #home {
+      display: grid;
+      place-content: center;
+   }
    #name-wrapper {
       display: flex;
       flex-direction: column;
