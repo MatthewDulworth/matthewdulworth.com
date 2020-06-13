@@ -1,19 +1,36 @@
 body {
-   display: grid;
-   place-items: center;
    color: #7f7f7f;
 }
 
-/* title */
+#scroll-wrapper {
+   height: 100vh;
+   width: 100vw;
+   scroll-behavior: smooth;
+   overflow-y: scroll;
+   scroll-snap-type: y mandatory;
+}
+.scroll-wrapper::-webkit-scrollbar {
+   display: none;
+}
+.scroll-wrapper {
+   -ms-overflow-style: none;
+}
+.scroll-item {
+   height: 100vh;
+   width: 100vw;
+   scroll-snap-align: start;
+   scroll-snap-stop: normal;
+}
 
-main {
+/* title */
+#name-wrapper {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
 }
 
-.name {
+#name {
    font-size: 1.5rem;
    color: white;
 }
@@ -22,7 +39,7 @@ hr {
    width: 16rem;
 }
 
-.subtitle {
+#subtitle {
    font-style: italic;
 }
 
