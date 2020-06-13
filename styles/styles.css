@@ -21,8 +21,22 @@ a {
    display: block;
 }
 
-#current-tab {
-   color: white;
+button {
+   font-size: 1rem;
+   font-family: inherit;
+   background-color: inherit;
+   color: inherit;
+   padding: 0;
+   margin: 0;
+   border: none;
+}
+
+.normal {
+   filter: invert(0%);
+}
+
+.invert {
+   filter: invert(100%);
 }
 
 /* adapted from: https://stackoverflow.com/a/4407335 */
@@ -37,6 +51,10 @@ a {
 }
 
 /* nav bar */
+
+#current-tab {
+   color: white;
+}
 
 nav {
    display: flex;
