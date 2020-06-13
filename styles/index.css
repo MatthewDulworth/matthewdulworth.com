@@ -3,21 +3,13 @@
    * {
       box-sizing: border-box;
    }
-   html, body {
-      color: #7f7f77;
-      margin: 0;
-      height: 100vh;
-   }
    body {
+      height: 100vh;
+      margin: 0;
       font-family: 'Anonymous Pro', monospace;
       background-color: black;
       overflow: hidden;
       color: white;
-   }
-   a {
-      color: inherit;
-      text-decoration: none;
-      display: block;
    }
    button {
       font-size: 1rem;
@@ -63,6 +55,7 @@
       color: white;
    }
    nav {
+      color: #7f7f7f;
       display: flex;
       flex-direction: column;
       font-size: 0.9rem;
@@ -76,17 +69,19 @@
    }
    #name {
       font-size: 1.5rem;
-      color: white;
    }
-   hr {
+   #name-wrapper hr {
+      color: #7f7f7f;
       width: 16rem;
    }
    #subtitle {
+      color: #7f7f7f;
       font-style: italic;
    }
 }
 
 /* desktop */
+
 @media (min-width: 800px) {
    nav {
       position: fixed;
@@ -95,25 +90,25 @@
       transform: translate(0, -50%);
    }
    .trigger {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding: 1rem 0rem;
    }
-   .trigger a {
+   .trigger button {
+      padding-left: 3px;
       position: relative;
-      right: -5rem;
+      right: -5.4rem;
       cursor: pointer;
-      transition: 0.5s
-   }
-   /* nav bar animations */
-   .trigger:hover a {
       transition: 0.5s;
-      transform: scale(1.1);
-      right: 1rem;
+   }
+   .trigger:hover button {
+      transition: 0.5s;
+      transform: scale(1.05);
+      right: 0.5rem;
       color: white;
    }
 }
 
 /* phones */
+
 @media (max-width: 799px) {
    body {
       display: flex;
@@ -132,6 +127,7 @@
 }
 
 /* small phones */
+
 @media (max-width: 350px) {
    main {
       margin-top: 7rem;
