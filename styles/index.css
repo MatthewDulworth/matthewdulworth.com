@@ -1,28 +1,76 @@
-body {
-   color: #7f7f7f;
+/*************** general ***************/
+
+* {
+   box-sizing: border-box;
 }
 
-#scroll-wrapper {
+html, body {
+   color: #7f7f77;
+   margin: 0;
    height: 100vh;
+}
+
+body {
+   font-family: 'Anonymous Pro', monospace;
+   background-color: black;
+   overflow: hidden;
+   color: white;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+   display: block;
+}
+
+button {
+   font-size: 1rem;
+   font-family: inherit;
+   background-color: inherit;
+   color: inherit;
+   padding: 0;
+   margin: 0;
+   border: none;
+}
+
+/* adapted from: https://stackoverflow.com/a/4407335 */
+
+.noselect {
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+/*************** scrolling ***************/
+
+#scroll-pane {
    width: 100vw;
+   height: 100vh;
    scroll-behavior: smooth;
    overflow-y: scroll;
    scroll-snap-type: y mandatory;
-}
-.scroll-wrapper::-webkit-scrollbar {
-   display: none;
-}
-.scroll-wrapper {
+   scrollbar-width: none;
    -ms-overflow-style: none;
 }
+
+#scroll-pane::-webkit-scrollbar {
+   width: 0px;
+   height: 0px;
+   background: transparent;
+}
+
 .scroll-item {
-   height: 100vh;
-   width: 100vw;
+   height: 100%;
+   width: 100%;
    scroll-snap-align: start;
    scroll-snap-stop: normal;
 }
 
-/* title */
+/*************** home ***************/
+
 #name-wrapper {
    display: flex;
    flex-direction: column;
@@ -43,21 +91,56 @@ hr {
    font-style: italic;
 }
 
+/* nav bar */
+
+#current-tab {
+   color: white;
+}
+
+nav {
+   display: flex;
+   flex-direction: column;
+   font-size: 0.9rem;
+}
+
+@media (min-width: 800px) {
+   nav {
+      position: fixed;
+      top: 50%;
+      right: 1rem;
+      transform: translate(0, -50%);
+   }
+   .trigger {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+   }
+   .trigger a {
+      position: relative;
+      right: -5rem;
+      cursor: pointer;
+      transition: 0.5s
+   }
+   /* nav bar animations */
+   .trigger:hover a {
+      transition: 0.5s;
+      transform: scale(1.1);
+      right: 1rem;
+      color: white;
+   }
+}
+
 @media (max-width: 799px) {
    body {
       display: flex;
       flex-direction: column;
       justify-content: center;
    }
-
    main {
       margin: 8rem 0rem 5rem;
    }
-
    .trigger {
       padding: 1.5rem 0rem;
    }
-
    nav {
       padding-left: 1.5rem;
    }
@@ -67,7 +150,6 @@ hr {
    main {
       margin-top: 7rem;
    }
-
    .subtitle {
       font-size: 0.8rem;
    }

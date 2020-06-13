@@ -16,7 +16,7 @@ body {
 }
 
 a {
-   color: #7f7f7f;
+   color: inherit;
    text-decoration: none;
    display: block;
 }
@@ -31,16 +31,7 @@ button {
    border: none;
 }
 
-.normal {
-   filter: invert(0%);
-}
-
-.invert {
-   filter: invert(100%);
-}
-
 /* adapted from: https://stackoverflow.com/a/4407335 */
-
 .noselect {
    -webkit-touch-callout: none;
    -webkit-user-select: none;
