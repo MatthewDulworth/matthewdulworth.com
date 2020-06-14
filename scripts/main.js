@@ -1,9 +1,11 @@
-// ------- elements ------- //
+'use strict';
+
 // ------- elements ------- //
 let scrollBtns = document.querySelectorAll(".trigger div");
 let scrollBoxes = document.querySelectorAll(".scroll-box");
 let scrollPane = document.querySelector("#scroll-pane");
 let navBar = document.querySelector("nav");
+let scrollItems = document.querySelectorAll(".scroll-item");
 
 
 // ------- event listeners ------- //
@@ -19,8 +21,22 @@ scrollPane.addEventListener('scroll', () => {
    });
 });
 
+/**
+ * Scrolls the scroll pane to the appropriate place based on the button clicked. 
+ */
+scrollBtns.forEach((btn, index) => btn.addEventListener('click', () => scrollItems[index].scrollIntoView({behavior: 'smooth'})));
 
 // ------- functions ------- //
+
+/**
+ * 
+ * @param {Element} btn 
+ * @param {number} index
+ */
+function scrollTo(btn, index) {
+  
+}
+
 /**
  * Checks to see if the passed element is completely in the viewport.
  * 
@@ -42,7 +58,7 @@ function inView(element) {
  */
 function setCurrentTab(button) {
    if (button.id != "current-tab") {
-      for (btn of scrollBtns) {
+      for (let btn of scrollBtns) {
          if (btn.id === "current-tab") {
             btn.id = "";
          }
