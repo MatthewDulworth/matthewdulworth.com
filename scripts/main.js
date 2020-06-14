@@ -1,16 +1,17 @@
 // ------- elements ------- //
+// ------- elements ------- //
 let scrollBtns = document.querySelectorAll(".trigger div");
 let scrollBoxes = document.querySelectorAll(".scroll-box");
 let scrollPane = document.querySelector("#scroll-pane");
+let navBar = document.querySelector("nav");
 
 
 // ------- event listeners ------- //
 /**
- * Listens for the scroll event in 
- * 
- * @listens scroll 
+ * Listens for the scroll event in the scroll pane and sets the highlighted scroll button accordingly. 
  */
 scrollPane.addEventListener('scroll', () => {
+   // Checks each scroll box to see if it is in the viewport, if so, sets the corresponding scroll button 
    scrollBoxes.forEach((box, index) => {
       if (inView(box)) {
          setCurrentTab(scrollBtns[index]);
@@ -35,7 +36,7 @@ function inView(element) {
 }
 
 /**
- * Removes sets the passed button to the current tab.
+ * Removes sets the passed button to the current tab. 
  * 
  * @param {Element} button A scroll button. 
  */
