@@ -87,9 +87,10 @@
    }
 }
 
-/* desktop */
+/* For desktop only have the nav bar be fixed the side of the screen
+ and have slide out animations on hover. */
 
-@media (min-width: 800px) {
+@media (min-width: 801px) {
    nav {
       position: fixed;
       top: 50%;
@@ -116,30 +117,4 @@
 
 /* phones */
 
-@media (max-width: 799px) {
-   body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-   }
-   main {
-      margin: 8rem 0rem 5rem;
-   }
-   .trigger {
-      padding: 1.5rem 0rem;
-   }
-   nav {
-      padding-left: 1.5rem;
-   }
-}
-
-/* small phones */
-
-@media (max-width: 350px) {
-   main {
-      margin-top: 7rem;
-   }
-   .subtitle {
-      font-size: 0.8rem;
-   }
-}
+@media (max-width: 600px) {}

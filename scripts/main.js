@@ -1,14 +1,49 @@
 'use strict';
 
 // ------- elements ------- //
+let scrollItems = document.querySelectorAll(".scroll-item");
 let scrollBtns = document.querySelectorAll(".trigger div");
 let scrollBoxes = document.querySelectorAll(".scroll-box");
 let scrollPane = document.querySelector("#scroll-pane");
+let homeSection = document.querySelector("#home");
 let navBar = document.querySelector("nav");
-let scrollItems = document.querySelectorAll(".scroll-item");
+
+// ----------------------------------------------------------------
+// handle mobile layout
+// ----------------------------------------------------------------
+const mediaQueryList = window.matchMedia("(max-width: 600px)");
+
+handleNavBarMobileLayout(mediaQueryList);
+mediaQueryList.addListener(handleNavBarMobileLayout);
+
+/**
+ * Changes nav bar dom position based on media query. 
+ * 
+ * @param {MediaQueryList} mql The media query list.
+ */
+function handleNavBarMobileLayout(mql) {
+
+   let onMobile = mql.matches;
+   let navBarMobile = (scrollPane.childNodes[0] == navBar);
+
+   if (onMobile && !navBarMobile) {
+      homeSection.appendChild(navBar);
+   } else if (!onMobile && navBarMobile) {
+      scrollPane.prepend(navBar);
+   }
+}
 
 
-// ------- event listeners ------- //
+
+// ----------------------------------------------------------------
+// handle scrolling
+// ----------------------------------------------------------------
+
+/**
+ * Scrolls the scroll pane to the appropriate place based on the button clicked. 
+ */
+scrollBtns.forEach((btn, index) => btn.addEventListener('click', () => scrollItems[index].scrollIntoView({ behavior: 'smooth' })));
+
 /**
  * Listens for the scroll event in the scroll pane and sets the highlighted scroll button accordingly. 
  */
@@ -21,12 +56,6 @@ scrollPane.addEventListener('scroll', () => {
    });
 });
 
-/**
- * Scrolls the scroll pane to the appropriate place based on the button clicked. 
- */
-scrollBtns.forEach((btn, index) => btn.addEventListener('click', () => scrollItems[index].scrollIntoView({behavior: 'smooth'})));
-
-// ------- functions ------- //
 /**
  * Checks to see if the passed element is completely in the viewport.
  * 
@@ -42,7 +71,7 @@ function inView(element) {
 }
 
 /**
- * Highlights the passed scroll button as the current tab. 
+ * Highlights the passed scroll button as the current button. 
  * 
  * @param {Element} button A scroll button. 
  */
