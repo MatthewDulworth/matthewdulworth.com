@@ -86,7 +86,7 @@
 /* For desktop only have the nav bar be fixed the side of the screen
  and have slide out animations on hover. */
 
-@media (min-width: 801px) {
+@media (min-width: 601px) {
    #home {
       display: grid;
       place-content: center;
@@ -105,10 +105,10 @@
       position: relative;
       right: -5rem;
       cursor: pointer;
-      transition: 0.5s;
+      transition: 0.2s;
    }
    .trigger:hover div {
-      transition: 0.5s;
+      transition: 0.3s;
       transform: scale(1.1);
       right: 0.5rem;
       color: white;
