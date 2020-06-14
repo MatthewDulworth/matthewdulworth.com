@@ -64,10 +64,6 @@
       z-index: 10;
    }
    /*************** home ***************/
-   #home {
-      display: grid;
-      place-content: center;
-   }
    #name-wrapper {
       display: flex;
       flex-direction: column;
@@ -91,6 +87,10 @@
  and have slide out animations on hover. */
 
 @media (min-width: 801px) {
+   #home {
+      display: grid;
+      place-content: center;
+   }
    nav {
       position: fixed;
       top: 50%;
@@ -117,4 +117,40 @@
 
 /* phones */
 
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+   #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+   #name-wrapper {
+      margin-top: 20%;
+      margin-bottom: 30%;
+   }
+   nav {
+      font-size: 1rem;
+   }
+   .trigger div {
+      padding: 1.2rem;
+      margin-left: 1rem;
+   }
+}
+
+/* small phones */
+
+@media (max-width: 350px) {
+   #name-wrapper {
+      margin-top: 20%;
+      margin-bottom: 15%;
+   }
+   #name {
+      font-size: 1.4rem;
+   }
+   #subtitle {
+      font-size: 0.85rem;
+   }
+   nav {
+      font-size: 0.9rem;
+   }
+}
