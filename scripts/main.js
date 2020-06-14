@@ -27,16 +27,6 @@ scrollPane.addEventListener('scroll', () => {
 scrollBtns.forEach((btn, index) => btn.addEventListener('click', () => scrollItems[index].scrollIntoView({behavior: 'smooth'})));
 
 // ------- functions ------- //
-
-/**
- * 
- * @param {Element} btn 
- * @param {number} index
- */
-function scrollTo(btn, index) {
-  
-}
-
 /**
  * Checks to see if the passed element is completely in the viewport.
  * 
@@ -52,7 +42,7 @@ function inView(element) {
 }
 
 /**
- * Removes sets the passed button to the current tab. 
+ * Highlights the passed scroll button as the current tab. 
  * 
  * @param {Element} button A scroll button. 
  */
