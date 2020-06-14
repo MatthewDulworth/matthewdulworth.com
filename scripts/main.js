@@ -8,6 +8,8 @@ let scrollPane = document.querySelector("#scroll-pane");
 let homeSection = document.querySelector("#home");
 let navBar = document.querySelector("nav");
 
+
+
 // ----------------------------------------------------------------
 // handle mobile layout
 // ----------------------------------------------------------------
@@ -28,8 +30,10 @@ function handleNavBarMobileLayout(mql) {
 
    if (onMobile && !navBarMobile) {
       homeSection.appendChild(navBar);
+      document.querySelector("#highlighted-btn").id = "";
    } else if (!onMobile && navBarMobile) {
       scrollPane.prepend(navBar);
+      handleButtonHighlight();
    }
 }
 
@@ -45,16 +49,24 @@ function handleNavBarMobileLayout(mql) {
 scrollBtns.forEach((btn, index) => btn.addEventListener('click', () => scrollItems[index].scrollIntoView({ behavior: 'smooth' })));
 
 /**
- * Listens for the scroll event in the scroll pane and sets the highlighted scroll button accordingly. 
+ * Listens for the scroll event in the scroll pane and sets the highlighted scroll button accordingly.
  */
-scrollPane.addEventListener('scroll', () => {
-   // Checks each scroll box to see if it is in the viewport, if so, sets the corresponding scroll button 
-   scrollBoxes.forEach((box, index) => {
-      if (inView(box)) {
-         setCurrentTab(scrollBtns[index]);
-      }
-   });
-});
+scrollPane.addEventListener('scroll', () => handleButtonHighlight());
+
+/**
+ * Highlights the correct button for scroll location. 
+ * Disabled on mobile mode.
+ */
+function handleButtonHighlight() {
+   if (!mediaQueryList.matches) {
+      // Checks each scroll box to see if it is in the viewport, if so, sets the corresponding scroll button 
+      scrollBoxes.forEach((box, index) => {
+         if (inView(box)) {
+            highlightButton(scrollBtns[index]);
+         }
+      });
+   }
+}
 
 /**
  * Checks to see if the passed element is completely in the viewport.
@@ -75,13 +87,14 @@ function inView(element) {
  * 
  * @param {Element} button A scroll button. 
  */
-function setCurrentTab(button) {
-   if (button.id != "current-tab") {
+function highlightButton(button) {
+
+   if (button.id != "highlighted-btn") {
       for (let btn of scrollBtns) {
-         if (btn.id === "current-tab") {
+         if (btn.id === "highlighted-btn") {
             btn.id = "";
          }
       }
-      button.id = "current-tab";
+      button.id = "highlighted-btn";
    }
 }
