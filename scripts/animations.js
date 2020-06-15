@@ -4,9 +4,11 @@
 // elements
 // ----------------------------------------------------------------
 let navBtns = document.querySelectorAll(".trigger div");
-let subtitles = document.querySelectorAll("#subtitle span");
+let subtitle = document.querySelector("#subtitle");
 let titleLine = document.querySelector(".titleLine");
 let themeBtn = document.querySelector("#theme-btn");
+let nameLetters = document.querySelectorAll(".letter");
+let name = document.querySelector("#name");
 let root = document.documentElement;
 
 
@@ -30,7 +32,7 @@ async function titleLoadAnimation(startup, timeBetween) {
    await time(startup);
    titleLine.classList.remove("hr-hide");
    await time(timeBetween);
-   subtitles.forEach(sub => sub.classList.remove("hidden"));
+   subtitle.classList.remove("hidden");
 }
 
 /**
@@ -80,4 +82,26 @@ function handleThemeChange() {
       root.style.setProperty('--background-color', "black");
       isDark = true;
    }
+}
+
+
+
+// ----------------------------------------------------------------
+// handle name animation
+// ----------------------------------------------------------------
+name.addEventListener('click', () => animateName(nameLetters));
+
+async function animateName(elements) {
+   console.log(elements);
+   subtitle.classList.add("hidden");
+   titleLine.classList.add("hidden");
+   let xSpread = 300, ySpread = 300;
+   if (window.innerWidth < 600) {
+      xSpread = 90;
+      ySpread = 200;
+   }
+   let anim = new WordExplodeAnimation(elements, xSpread, ySpread, 500, 0);
+   await anim.run();
+   subtitle.classList.remove("hidden");
+   titleLine.classList.remove("hidden");
 }
