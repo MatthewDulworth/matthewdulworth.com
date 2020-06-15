@@ -11,6 +11,10 @@
       overflow: hidden;
       color: white;
    }
+   .hidden {
+      pointer-events: none;
+      opacity: 0;
+   }
    /* adapted from: https://stackoverflow.com/a/4407335 */
    .no-select {
       -webkit-touch-callout: none;
@@ -73,13 +77,22 @@
    #name {
       font-size: 1.5rem;
    }
-   #name-wrapper hr {
+   .titleLine {
       color: #7f7f7f;
       width: 16rem;
+      opacity: 1;
+      transition: 0.5s;
+   }
+   .hr-hide{
+      width: 0;
+      opacity: 0;
    }
    #subtitle {
       color: #7f7f7f;
       font-style: italic;
+   }
+   #subtitle span {
+      transition: 0.5s;
    }
 }
 
