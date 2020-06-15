@@ -92,9 +92,11 @@ function handleThemeChange() {
 name.addEventListener('click', () => animateName(nameLetters));
 
 async function animateName(elements) {
-   console.log(elements);
+   subtitle.classList.remove("transition");
+   titleLine.classList.remove("transition");
    subtitle.classList.add("hidden");
    titleLine.classList.add("hidden");
+
    let xSpread = 300, ySpread = 300;
    if (window.innerWidth < 600) {
       xSpread = 90;
@@ -102,6 +104,9 @@ async function animateName(elements) {
    }
    let anim = new WordExplodeAnimation(elements, xSpread, ySpread, 500, 0);
    await anim.run();
+
+   subtitle.classList.add("transition");
+   titleLine.classList.add("transition");
    subtitle.classList.remove("hidden");
    titleLine.classList.remove("hidden");
 }

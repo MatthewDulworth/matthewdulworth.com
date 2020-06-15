@@ -28,6 +28,9 @@
       pointer-events: none;
       opacity: 0;
    }
+   .transition{
+      transition: 0.5s;
+   }
    /* adapted from: https://stackoverflow.com/a/4407335 */
    .no-select {
       -webkit-touch-callout: none;
@@ -119,7 +122,6 @@
       color: #7f7f7f;
       color: var(--secondary-color);
       width: 16rem;
-      transition: 0.5s;
    }
    .hr-hide {
       width: 0;
@@ -129,7 +131,6 @@
       color: #7f7f7f;
       color: var(--secondary-color);
       font-style: italic;
-      transition: 0.5s;
    }
 }
 
