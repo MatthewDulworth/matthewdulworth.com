@@ -28,7 +28,7 @@
       pointer-events: none;
       opacity: 0;
    }
-   .transition{
+   .transition {
       transition: 0.5s;
    }
    /* adapted from: https://stackoverflow.com/a/4407335 */
@@ -39,6 +39,10 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+   }
+   a {
+      color: #7f7f7f;
+      color: var(--secondary-color);
    }
    /*************** scrolling ***************/
    #scroll-pane {
@@ -110,7 +114,7 @@
       cursor: pointer;
       font-size: 1px;
    }
-   .letter{
+   .letter {
       /* added invisible outline because safari is bad and this fixes weird drawing issues during animations */
       outline: 1px solid transparent;
       position: relative;
@@ -132,12 +136,19 @@
       color: var(--secondary-color);
       font-style: italic;
    }
+   /*************** about ***************/
+   #about {
+      display: grid;
+      place-items: center;
+   }
 }
 
-/* For desktop only have the nav bar be fixed the side of the screen
- and have slide out animations on hover. */
+/* desktop */
 
 @media (min-width: 601px) {
+   /*************** nav bar ***************/
+   /* For desktop only have the nav bar be fixed the side of the screen
+      and have slide out animations on hover. */
    #home {
       display: grid;
       place-content: center;
@@ -164,6 +175,49 @@
       right: 0.5rem;
       color: white;
       color: var(--main-color);
+   }
+   .content {
+      height: 100%;
+      width: calc(100% - 20rem);
+   }
+   /*************** about ***************/
+   #about .content {
+      display: grid;
+      place-items: center;
+   }
+
+   #about-wrapper {
+      max-width: 1200px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+   }
+
+   #my-face {
+      height: 18rem;
+      width: 18rem;
+      margin-right: 3rem;
+      border-radius: 5%;
+   }
+
+   #about-text h1{
+      font-style: normal;
+      font-size: 1.5rem;
+   }
+
+   #about-text p{
+      color: #7f7f7f;
+      color: var(--secondary-color);
+   }
+}
+
+@media (max-width: 1111px) {
+   #about-wrapper{
+      flex-direction: column;
+   }
+
+   #about-text {
+      margin-top: 3rem;
    }
 }
 
