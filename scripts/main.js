@@ -1,6 +1,8 @@
 'use strict';
 
-// ------- elements ------- //
+// ----------------------------------------------------------------
+// elements
+// ----------------------------------------------------------------
 let scrollItems = document.querySelectorAll(".scroll-item");
 let scrollBtns = document.querySelectorAll(".trigger div");
 let scrollBoxes = document.querySelectorAll(".scroll-box");

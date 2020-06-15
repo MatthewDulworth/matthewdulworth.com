@@ -1,3 +1,11 @@
+/*************** variables ***************/
+
+:root {
+   --main-color: white;
+   --secondary-color: #7f7f7f;
+   --background-color: black;
+}
+
 @media all {
    /*************** general ***************/
    * {
@@ -6,10 +14,13 @@
    body {
       height: 100vh;
       margin: 0;
+      transition: 0.5s;
       font-family: 'Anonymous Pro', monospace;
       background-color: black;
+      background-color: var(--background-color);
       overflow: hidden;
       color: white;
+      color: var(--main-color);
    }
    .hidden {
       pointer-events: none;
@@ -68,13 +79,16 @@
    }
    .light-bulb-icon {
       fill: white;
+      fill: var(--main-color);
    }
    /*************** nav bar ***************/
    #highlighted-btn {
       color: white;
+      color: var(--main-color);
    }
    nav {
       color: #7f7f7f;
+      color: var(--secondary-color);
       display: flex;
       flex-direction: column;
       font-size: 0.9rem;
@@ -92,6 +106,7 @@
    }
    .titleLine {
       color: #7f7f7f;
+      color: var(--secondary-color);
       width: 16rem;
       opacity: 1;
       transition: 0.5s;
@@ -102,6 +117,7 @@
    }
    #subtitle {
       color: #7f7f7f;
+      color: var(--secondary-color);
       font-style: italic;
    }
    #subtitle span {
@@ -138,6 +154,7 @@
       transform: scale(1.1);
       right: 0.5rem;
       color: white;
+      color: var(--main-color);
    }
 }
 
