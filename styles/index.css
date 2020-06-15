@@ -6,6 +6,8 @@
    --background-color: black;
 }
 
+/* for everything */
+
 @media all {
    /*************** general ***************/
    * {
@@ -102,7 +104,16 @@
       align-items: center;
    }
    #name {
+      cursor: pointer;
+      font-size: 1px;
+   }
+   .letter{
+      /* added invisible outline because safari is bad and this fixes weird drawing issues during animations */
+      outline: 1px solid transparent;
+      position: relative;
       font-size: 1.5rem;
+      margin: 0;
+      padding: 0;
    }
    .titleLine {
       color: #7f7f7f;
