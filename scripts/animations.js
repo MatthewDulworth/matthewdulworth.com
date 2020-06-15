@@ -9,6 +9,7 @@ let titleLine = document.querySelector(".titleLine");
 let themeBtn = document.querySelector("#theme-btn");
 let nameLetters = document.querySelectorAll(".letter");
 let name = document.querySelector("#name");
+let facePic = document.querySelector("#my-face");
 let root = document.documentElement;
 
 
@@ -71,15 +72,20 @@ let isDark = true;
  * Handles changes for light and dark themes.
  */
 function handleThemeChange() {
+   // light-mode styles
    if (isDark) {
       root.style.setProperty('--main-color', "black");
       root.style.setProperty('--secondary-color', "rgb(90,90,90)");
       root.style.setProperty('--background-color', "white");
+      facePic.style.setProperty('box-shadow', "0px 0px 10px 3px rgba(0,0,0,0.5)");
       isDark = false;
-   } else {
+   }
+   // dark-mode styles
+   else {
       root.style.setProperty('--main-color', "white");
       root.style.setProperty('--secondary-color', "#7f7f7f");
       root.style.setProperty('--background-color', "black");
+      facePic.style.setProperty('box-shadow', "0px -2px 10px 3px rgba(270,270,270,0.2)");
       isDark = true;
    }
 }
