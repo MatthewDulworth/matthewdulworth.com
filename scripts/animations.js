@@ -3,13 +3,15 @@
 let navBtns = document.querySelectorAll(".trigger div");
 let subtitles = document.querySelectorAll("#subtitle span");
 let titleLine = document.querySelector(".titleLine");
+let themeBtn = document.querySelector("#theme-btn");
 
 /**
  * Startup animations go here. 
  */
 window.onload = async function () {
    await titleLoadAnimation(500, 500);
-   await navBarLoadAnimation(100, 75);
+   themeBtn.classList.remove("hidden");
+   navBarLoadAnimation(100, 75);
 }
 
 /**
