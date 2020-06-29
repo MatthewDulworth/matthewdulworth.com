@@ -9,7 +9,7 @@ let titleLine = document.querySelector(".titleLine");
 let themeBtn = document.querySelector("#theme-btn");
 let nameLetters = document.querySelectorAll(".letter");
 let name = document.querySelector("#name");
-let facePic = document.querySelector("#my-face");
+let pics = document.querySelectorAll(".box-img");
 let root = document.documentElement;
 
 
@@ -77,7 +77,7 @@ function handleThemeChange() {
       root.style.setProperty('--main-color', "black");
       root.style.setProperty('--secondary-color', "rgb(90,90,90)");
       root.style.setProperty('--background-color', "white");
-      facePic.style.setProperty('box-shadow', "0px 0px 10px 3px rgba(0,0,0,0.5)");
+      pics.forEach(pic => pic.style.setProperty('box-shadow', "0px 0px 10px 3px rgba(0,0,0,0.5)"));
       isDark = false;
    }
    // dark-mode styles
@@ -85,7 +85,7 @@ function handleThemeChange() {
       root.style.setProperty('--main-color', "white");
       root.style.setProperty('--secondary-color', "#7f7f7f");
       root.style.setProperty('--background-color', "black");
-      facePic.style.setProperty('box-shadow', "0px -2px 10px 3px rgba(270,270,270,0.2)");
+      pics.forEach(pic => pic.style.setProperty('box-shadow', "0px 0px 10px 3px rgba(270,270,270,0.2)"));
       isDark = true;
    }
 }
@@ -96,23 +96,30 @@ function handleThemeChange() {
 // handle name animation
 // ----------------------------------------------------------------
 name.addEventListener('click', () => animateName(nameLetters));
+let running = false;
 
 async function animateName(elements) {
-   subtitle.classList.remove("transition");
-   titleLine.classList.remove("transition");
-   subtitle.classList.add("hidden");
-   titleLine.classList.add("hidden");
+   if (!running) {
+      running = true;
+      name.style.setProperty('cursor', "auto");
+      subtitle.classList.remove("transition");
+      titleLine.classList.remove("transition");
+      subtitle.classList.add("hidden");
+      titleLine.classList.add("hidden");
 
-   let xSpread = 300, ySpread = 300;
-   if (window.innerWidth < 600) {
-      xSpread = 90;
-      ySpread = 200;
+      let xSpread = 300, ySpread = 300;
+      if (window.innerWidth < 600) {
+         xSpread = 90;
+         ySpread = 200;
+      }
+      let anim = new WordExplodeAnimation(elements, xSpread, ySpread, 500, 0);
+      await anim.run();
+
+      subtitle.classList.add("transition");
+      titleLine.classList.add("transition");
+      subtitle.classList.remove("hidden");
+      titleLine.classList.remove("hidden");
+      name.style.setProperty('cursor', "pointer");
+      running = false;
    }
-   let anim = new WordExplodeAnimation(elements, xSpread, ySpread, 500, 0);
-   await anim.run();
-
-   subtitle.classList.add("transition");
-   titleLine.classList.add("transition");
-   subtitle.classList.remove("hidden");
-   titleLine.classList.remove("hidden");
 }
