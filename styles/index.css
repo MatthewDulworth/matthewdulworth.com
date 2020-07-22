@@ -309,19 +309,28 @@
       color: #7f7f7f;
       color: var(--secondary-color);
    }
-
    .content-title {
       display: flex;
    }
    /*************** projects ***************/
-   #projects .content {
+   #projects .content-box {
+      margin: 5rem 0rem;
+   }
+   #projects .content-title .mob-vis {
+      display: flex;
+      flex-direction: column;
+   }
+   .dumb-wrapper {
+      height: 100%;
+      width: 100%;
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
    }
-   #projects .content-box{
-      margin: 5rem 0rem;
+   .text-wrapper p{
+      margin-left: 0.5rem;
    }
 }
 
