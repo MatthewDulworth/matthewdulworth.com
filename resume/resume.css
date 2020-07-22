@@ -1,0 +1,15 @@
+* {
+   box-sizing: border-box;
+}
+
+body {
+   height: 100vh;
+   margin: 0;
+   transition: 0.5s;
+   background-color: black;
+   color: white;
+   font-size: 30px;
+   display: grid;
+   place-items: center;
+   font-family: monospace;
+}
