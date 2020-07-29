@@ -312,6 +312,22 @@
    .content-title {
       display: flex;
    }
+   /*************** about ***************/
+   #about .content-box .text-wrapper{
+      font-size: 0.9rem;
+   }
+
+   #about .content-box .content-title{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   #about .content-box .box-img {
+      width: 10rem;
+      height: 10rem;
+      margin: 0;
+   }
    /*************** projects ***************/
    #projects .content-box {
       margin: 5rem 0rem;
